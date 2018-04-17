@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F466D61-33E4-4F0C-966E-2DEEEC705A4D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UspsRates</RootNamespace>
+    <AssemblyName>UspsRates</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\FlatRateChart.cs" />
+    <Compile Include="Data\IndexerWeightOz1To13.cs" />
+    <Compile Include="Data\IndexerWeightOz1To15Point999.cs" />
+    <Compile Include="Data\IndexerVolumeCuFtPoint1ToPoint5.cs" />
+    <Compile Include="Data\IndexerWeightOz1To3Point5.cs" />
+    <Compile Include="Data\IndexerZone1To9.cs" />
+    <Compile Include="Data\IndexerZoneLTo4.cs" />
+    <Compile Include="Data\IndexerZone1To5.cs" />
+    <Compile Include="Data\IndexerZoneLTo9.cs" />
+    <Compile Include="Data\IIndexer.cs" />
+    <Compile Include="Data\ITableSingleCell.cs" />
+    <Compile Include="Data\ITableSingleColumn.cs" />
+    <Compile Include="Data\ITableSingleRow.cs" />
+    <Compile Include="Data\ITable.cs" />
+    <Compile Include="Data\IndexerWeightLb1To70.cs" />
+    <Compile Include="Data\IndexerWeightLbHalfTo70.cs" />
+    <Compile Include="Data\TableSingleCell.cs" />
+    <Compile Include="Data\TableSingleColumnWeight.cs" />
+    <Compile Include="Data\TableSingleRowZone.cs" />
+    <Compile Include="Data\TableZoneVolume.cs" />
+    <Compile Include="Data\TableZoneWeight.cs" />
+    <Compile Include="Dimensions.cs" />
+    <Compile Include="Distance.cs" />
+    <Compile Include="FirstClassMail\FirstClassFlatChart.cs" />
+    <Compile Include="FirstClassMail\FirstClassLetterChart.cs" />
+    <Compile Include="FirstClassMail\FirstClassParcelChart.cs" />
+    <Compile Include="IRateChart.cs" />
+    <Compile Include="LibraryMail\LibraryMailChart.cs" />
+    <Compile Include="MediaMail\MedialMailChart.cs" />
+    <Compile Include="MyActivator.cs" />
+    <Compile Include="PriorityMailExpress\PriorityMailExpressZoneChart.cs" />
+    <Compile Include="PriorityMail\PriorityRegionalRateBoxChart.cs" />
+    <Compile Include="RetailGround\RetailGroundZoneChartParcels.cs" />
+    <Compile Include="Shapes.cs" />
+    <Compile Include="PriorityMail\PriorityMailZoneChart.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shipment.cs" />
+    <Compile Include="TableData.cs" />
+    <Compile Include="Weight.cs" />
+    <Compile Include="ZoneChart.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
