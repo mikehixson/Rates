@@ -20,6 +20,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsersUnitTest", "ParsersU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyPostTests", "EasyPostTests\EasyPostTests.csproj", "{DD1799B4-6044-4D93-A335-9FE3B959C814}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{D67FD127-A414-4534-BFE4-1D9C04D47AA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZoneStuff", "ZoneStuff\ZoneStuff.csproj", "{591541A5-7EE2-4BC6-827F-E47D3FB2845F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZoneStuffTest", "ZoneStuffTest\ZoneStuffTest.csproj", "{B9812CFD-6B72-4116-9A72-10C64ED1955B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{37D1CA56-E77A-4B89-8445-4412E84DA652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoneDataPrep", "ZoneDataPrep\ZoneDataPrep.csproj", "{2F97883B-B6EF-4ABC-9029-26D0E276E8CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,11 +56,61 @@ Global
 		{DD1799B4-6044-4D93-A335-9FE3B959C814}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD1799B4-6044-4D93-A335-9FE3B959C814}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD1799B4-6044-4D93-A335-9FE3B959C814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D67FD127-A414-4534-BFE4-1D9C04D47AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D67FD127-A414-4534-BFE4-1D9C04D47AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D67FD127-A414-4534-BFE4-1D9C04D47AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D67FD127-A414-4534-BFE4-1D9C04D47AA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{591541A5-7EE2-4BC6-827F-E47D3FB2845F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{591541A5-7EE2-4BC6-827F-E47D3FB2845F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{591541A5-7EE2-4BC6-827F-E47D3FB2845F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{591541A5-7EE2-4BC6-827F-E47D3FB2845F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9812CFD-6B72-4116-9A72-10C64ED1955B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9812CFD-6B72-4116-9A72-10C64ED1955B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9812CFD-6B72-4116-9A72-10C64ED1955B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9812CFD-6B72-4116-9A72-10C64ED1955B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37D1CA56-E77A-4B89-8445-4412E84DA652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D1CA56-E77A-4B89-8445-4412E84DA652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D1CA56-E77A-4B89-8445-4412E84DA652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D1CA56-E77A-4B89-8445-4412E84DA652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F97883B-B6EF-4ABC-9029-26D0E276E8CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F97883B-B6EF-4ABC-9029-26D0E276E8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F97883B-B6EF-4ABC-9029-26D0E276E8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F97883B-B6EF-4ABC-9029-26D0E276E8CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4105A07D-2B03-4C1D-9CF2-B1041FAB5122}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal
