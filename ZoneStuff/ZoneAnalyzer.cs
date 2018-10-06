@@ -112,7 +112,7 @@ namespace ZoneStuff
 
             if (lineIndex2 > 0)
             {
-                var origin = (short)MyReader.GetInt32(line.Slice(0, 3));
+                var origin = (short)Converter.GetInt32(line.Slice(0, 3));
 
                 var destination = (short)1;
 

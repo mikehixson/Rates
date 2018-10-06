@@ -12,10 +12,10 @@ namespace ZoneStuffTest
         [Fact]
         public void TestMethod1()
         {
-            ZoneStuff.Class1.Zone(@"C:\Users\Mike\Downloads\charts\format2.txt");
-            ZoneStuff.Class1.Exception(@"C:\Users\Mike\Downloads\2018-06-01-charts\exception.txt");
+            //ZoneStuff.Class1.Zone(@"C:\Users\Mike\Downloads\charts\format2.txt");
+            //ZoneStuff.Class1.Exception(@"C:\Users\Mike\Downloads\2018-06-01-charts\exception.txt");
 
-            ZoneStuff.Class1.Play();
+            //ZoneStuff.Class1.Play();
         }
 
         [Fact]

@@ -18,7 +18,7 @@ namespace ConsoleApp2
             using (Image<Rgba32> image = new Image<Rgba32>(Configuration.Default, 1020, 1020, Rgba32.WhiteSmoke))
             {
 
-                image.Mutate(x => x.DrawLines());
+                //image.Mutate(x => x.DrawLines());
 
                 var pen = Pens.Solid<Rgba32>(Rgba32.Black, 1);
                 var pink = Rgba32.HotPink;

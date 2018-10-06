@@ -6,12 +6,12 @@ namespace ZoneStuff
 {
     public struct ZipCodeException : IEquatable<ZipCodeException>
     {
-        public ZipCodeRangeY Origin { get; private set; }
-        public ZipCodeRangeY Destination { get; private set; }
+        public ZipCodeRange Origin { get; private set; }
+        public ZipCodeRange Destination { get; private set; }
         public byte Zone { get; private set; }
         public byte MailType { get; private set; }
 
-        public ZipCodeException(ZipCodeRangeY origin, ZipCodeRangeY destination, byte zone, byte mailType)
+        public ZipCodeException(ZipCodeRange origin, ZipCodeRange destination, byte zone, byte mailType)
         {
             //if (origin == null)
             //    throw new ArgumentNullException(nameof(origin));

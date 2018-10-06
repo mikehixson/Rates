@@ -58,14 +58,14 @@ namespace ZoneStuff
         {
             if (lineIndex > 0)
             {
-                var originStart = MyReader.GetInt32(line.Slice(0, 5));
-                var originEnd = MyReader.GetInt32(line.Slice(5, 5));
-                var destinationStart = MyReader.GetInt32(line.Slice(10, 5));
-                var destinationEnd = MyReader.GetInt32(line.Slice(15, 5));
-                var zone = (byte)MyReader.GetInt32(line.Slice(20, 2));
-                var type = (byte)MyReader.GetInt32(line.Slice(22, 2));
+                var originStart = Converter.GetInt32(line.Slice(0, 5));
+                var originEnd = Converter.GetInt32(line.Slice(5, 5));
+                var destinationStart = Converter.GetInt32(line.Slice(10, 5));
+                var destinationEnd = Converter.GetInt32(line.Slice(15, 5));
+                var zone = (byte)Converter.GetInt32(line.Slice(20, 2));
+                var type = (byte)Converter.GetInt32(line.Slice(22, 2));
 
-                return new ZipCodeException(new ZipCodeRangeY(originStart, originEnd), new ZipCodeRangeY(destinationStart, destinationEnd), zone, type);
+                return new ZipCodeException(new ZipCodeRange(originStart, originEnd), new ZipCodeRange(destinationStart, destinationEnd), zone, type);
             }
             else
             {
@@ -82,7 +82,7 @@ namespace ZoneStuff
 
             if (lineIndex2 > 0)
             {
-                var origin = (short)MyReader.GetInt32(line.Slice(0, 3));
+                var origin = (short)Converter.GetInt32(line.Slice(0, 3));
 
                 var destination = (short)1;
 

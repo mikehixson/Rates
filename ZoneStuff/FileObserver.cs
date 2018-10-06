@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ZoneStuff
 { 
+    // This came about because there is no way to do async yield return. So if I want to process a file asynchronously, but not accumulate all the lines in memory
+    // then this is one way to do it.
+
     public class FileObserver
     {
         public static IObservable<T> AllLines<T>(string filePath, Func<ReadOnlySequence<byte>, T> f)
@@ -80,6 +83,11 @@ namespace ZoneStuff
                 catch (Exception e)
                 {
                     observer.OnError(e);
+                }
+                finally
+                {
+                    // Mark the PipeReader as complete
+                    //TODO: reader.Complete();
                 }
             });
         }

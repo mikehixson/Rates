@@ -4,18 +4,18 @@ using System.Text;
 
 namespace ZoneStuff
 {
-    public struct ZipCodeRangeY : IEquatable<ZipCodeRangeY>, IComparable<ZipCodeRangeY>
+    public struct ZipCodeRange : IEquatable<ZipCodeRange>, IComparable<ZipCodeRange>
     {
         public int Start { get; private set; }
         public int End { get; private set; }
 
-        public ZipCodeRangeY(int start, int end)
+        public ZipCodeRange(int start, int end)
         {
             Start = start;
             End = end;
         }
 
-        public bool Proceeds(ZipCodeRangeY other)
+        public bool Proceeds(ZipCodeRange other)
         {
             return End + 1 == other.Start;
         }
@@ -25,12 +25,12 @@ namespace ZoneStuff
             return value >= Start && value <= End;
         }
 
-        public bool Intersects(ZipCodeRangeY other)
+        public bool Intersects(ZipCodeRange other)
         {
             return Contains(other.Start) || Contains(other.End) || other.Contains(Start) || other.Contains(End);
         }
 
-        public bool Equals(ZipCodeRangeY other)
+        public bool Equals(ZipCodeRange other)
         {
             //if (other == null)
             //    return false;
@@ -38,7 +38,7 @@ namespace ZoneStuff
             return other.Start == Start && other.End == End;
         }
 
-        public int CompareTo(ZipCodeRangeY other)
+        public int CompareTo(ZipCodeRange other)
         {
             int compare;
 
@@ -58,7 +58,7 @@ namespace ZoneStuff
         public override bool Equals(object obj)
         {
             //return Equals(obj as ZipCodeRangeY);
-            return Equals((ZipCodeRangeY)obj);
+            return Equals((ZipCodeRange)obj);
         }
 
         public override int GetHashCode()
@@ -79,9 +79,9 @@ namespace ZoneStuff
             return $"{Start:00000} - {End:00000}";
         }
 
-        public static ZipCodeRangeY Combine(ZipCodeRangeY a, ZipCodeRangeY b)
+        public static ZipCodeRange Combine(ZipCodeRange a, ZipCodeRange b)
         {
-            return new ZipCodeRangeY(a.Start, b.End);
+            return new ZipCodeRange(a.Start, b.End);
         }
     }
 }

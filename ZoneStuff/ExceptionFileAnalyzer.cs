@@ -53,7 +53,7 @@ namespace ZoneStuff
         // Requires exception-expanded.txt
         private void DistinctTwoDigitRanges()
         {
-            var query = _list.SelectMany(e => new[] { new ZipCodeRangeY(e.Origin.Start % 100, e.Origin.End % 100), new ZipCodeRangeY(e.Destination.Start % 100, e.Destination.End % 100) })
+            var query = _list.SelectMany(e => new[] { new ZipCodeRange(e.Origin.Start % 100, e.Origin.End % 100), new ZipCodeRange(e.Destination.Start % 100, e.Destination.End % 100) })
                 .GroupBy(r => $"{r.Start:00000}{r.End:00000}")
                 .OrderBy(g => g.Count());
                        
@@ -68,7 +68,7 @@ namespace ZoneStuff
 
         private void DistinctTwoDigitRangePairs()
         {
-            var query = _list.Select(e => new { A = new ZipCodeRangeY(e.Origin.Start % 100, e.Origin.End % 100), B = new ZipCodeRangeY(e.Destination.Start % 100, e.Destination.End % 100) })
+            var query = _list.Select(e => new { A = new ZipCodeRange(e.Origin.Start % 100, e.Origin.End % 100), B = new ZipCodeRange(e.Destination.Start % 100, e.Destination.End % 100) })
                 .GroupBy(r => $"{r.A.Start:00000}{r.A.End:00000}{r.B.Start:00000}{r.B.End:00000}")
                 .OrderBy(g => g.Count());
 
@@ -227,7 +227,7 @@ namespace ZoneStuff
             }
         }
 
-        private IEnumerable<ZipCodeRangeY> EnumerateRange(ZipCodeRangeY range)
+        private IEnumerable<ZipCodeRange> EnumerateRange(ZipCodeRange range)
         {
             var start = range.Start;
             while (true)
@@ -237,7 +237,7 @@ namespace ZoneStuff
 
                 var end = Math.Min(range.End, RoundToNextHundred(start) - 1);
 
-                yield return new ZipCodeRangeY(start, end);
+                yield return new ZipCodeRange(start, end);
                 //Console.WriteLine($"{start} - {end}");
 
                 start = end + 1;
@@ -258,14 +258,14 @@ namespace ZoneStuff
 
             if (lineIndex > 0)
             {
-                var originStart = MyReader.GetInt32(line.Slice(0, 5));
-                var originEnd = MyReader.GetInt32(line.Slice(5, 5));
-                var destinationStart = MyReader.GetInt32(line.Slice(10, 5));
-                var destinationEnd = MyReader.GetInt32(line.Slice(15, 5));
-                var zone = (byte)MyReader.GetInt32(line.Slice(20, 2));
-                var type = (byte)MyReader.GetInt32(line.Slice(22, 2));
+                var originStart = Converter.GetInt32(line.Slice(0, 5));
+                var originEnd = Converter.GetInt32(line.Slice(5, 5));
+                var destinationStart = Converter.GetInt32(line.Slice(10, 5));
+                var destinationEnd = Converter.GetInt32(line.Slice(15, 5));
+                var zone = (byte)Converter.GetInt32(line.Slice(20, 2));
+                var type = (byte)Converter.GetInt32(line.Slice(22, 2));
 
-                _list.Add(new ZipCodeException(new ZipCodeRangeY(originStart, originEnd), new ZipCodeRangeY(destinationStart, destinationEnd), zone, type));
+                _list.Add(new ZipCodeException(new ZipCodeRange(originStart, originEnd), new ZipCodeRange(destinationStart, destinationEnd), zone, type));
             }
 
             lineIndex++;

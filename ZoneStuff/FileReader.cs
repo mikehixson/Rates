@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Buffers;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Pipelines;
-using System.Reactive.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ZoneStuff
@@ -13,8 +10,6 @@ namespace ZoneStuff
     {
         public static async Task ReadAllLinesAsync(string filePath, Action<ReadOnlySequence<byte>> action)
         {
-            //var path = @"C:\Users\Mike\Downloads\charts\format2.txt";
-
             var pipe = new Pipe();
             _ = FillPipeAsync(pipe.Writer, filePath);
 
@@ -69,6 +64,9 @@ namespace ZoneStuff
 
                 reader.AdvanceTo(buffer.Start, buffer.End); //todo: i dont fully understand what the "examined" argument is
             }
-        }        
+
+            // todo: are we missing some sort of cleanup of the reader?
+            // reader.Complete();
+        }
     }
 }

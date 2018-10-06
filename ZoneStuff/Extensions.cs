@@ -7,6 +7,12 @@ namespace ZoneStuff
 {
     public static class Extensions
     {
+
+        /// <summary>
+        /// Combines like Exceptions that have contigous Destination ranges.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static IEnumerable<ZipCodeException> CompressByOrigin(this IEnumerable<ZipCodeException> input)
         {
             var sorted = input.OrderBy(e => e, new OrderByOriginComparer());
@@ -17,7 +23,7 @@ namespace ZoneStuff
             {
                 if (CanCompressByOrigin(a, b))
                 {
-                    a = new ZipCodeException(a.Origin, new ZipCodeRangeY(a.Destination.Start, b.Destination.End), a.Zone, a.MailType);
+                    a = new ZipCodeException(a.Origin, new ZipCodeRange(a.Destination.Start, b.Destination.End), a.Zone, a.MailType);
                 }
                 else
                 {
@@ -34,6 +40,11 @@ namespace ZoneStuff
             return a.Origin.Equals(b.Origin) && a.Destination.Proceeds(b.Destination) && a.Zone == b.Zone && a.MailType == b.MailType;
         }
 
+        /// <summary>
+        /// Combines like Exceptions that have contigous Origin ranges.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static IEnumerable<ZipCodeException> CompressByDestination(this IEnumerable<ZipCodeException> input)
         {
             var sorted = input.OrderBy(e => e, new OrderByDestinationComparer());
@@ -44,7 +55,7 @@ namespace ZoneStuff
             {
                 if (CanCompressByDestination(a, b))
                 {
-                    a = new ZipCodeException(ZipCodeRangeY.Combine(a.Origin, b.Origin), a.Destination, a.Zone, a.MailType);
+                    a = new ZipCodeException(ZipCodeRange.Combine(a.Origin, b.Origin), a.Destination, a.Zone, a.MailType);
                 }
                 else
                 {
@@ -65,7 +76,11 @@ namespace ZoneStuff
 
 
 
-
+        /// <summary>
+        /// Breaks apart Exceptions ranges such that none span more than one 3-digit zip.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static IEnumerable<ZipCodeException> Expand(this IEnumerable<ZipCodeException> input)
         {
             foreach (var exception in input)
@@ -85,12 +100,12 @@ namespace ZoneStuff
             }
         }
 
-        private static bool IsSingleSegment(ZipCodeRangeY range)
+        private static bool IsSingleSegment(ZipCodeRange range)
         {
             return (range.Start / 100) == (range.End / 100);            
         }
 
-        private static IEnumerable<ZipCodeRangeY> EnumerateRange(ZipCodeRangeY range)
+        private static IEnumerable<ZipCodeRange> EnumerateRange(ZipCodeRange range)
         {
             var start = range.Start;
             while (true)
@@ -100,7 +115,7 @@ namespace ZoneStuff
 
                 var end = Math.Min(range.End, RoundToNextHundred(start) - 1);
 
-                yield return new ZipCodeRangeY(start, end);
+                yield return new ZipCodeRange(start, end);
 
                 start = end + 1;
             }

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ZoneStuff
 {
+    // todo: 0 in the zone chart means dest zip doesnt exist
     public struct ZipCodeZone
     {
         public short Origin { get; private set; }
